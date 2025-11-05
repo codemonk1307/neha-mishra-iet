@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neha Mishra - Where Code Meets Canvas</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="#home">
+                <span class="logo-text">Neha</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#my-reads">My Reads</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#art">Art & Comedy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Connect</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <canvas id="particle-canvas"></canvas>
+        <div class="hero-content">
+            <div class="container">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-12 text-center">
+                        <h1 class="hero-title" data-aos="fade-up">
+                            <span class="name-highlight">Neha Mishra</span>
+                        </h1>
+                        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                            <span class="typewriter" id="typewriter"></span>
+                        </p>
+                        <p class="hero-tagline" data-aos="fade-up" data-aos-delay="400">
+                            Where algorithms meet aesthetics, and code becomes poetry
+                        </p>
+                        <div class="hero-cta" data-aos="fade-up" data-aos-delay="600">
+                            <a href="#achievements" class="btn btn-primary btn-lg me-3">Explore My Journey</a>
+                            <a href="#contact" class="btn btn-outline-light btn-lg">Let's Connect</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-bg"></div>
+                        <div class="about-card">
+                            <h3>The Artist's Code</h3>
+                            <p class="fst-italic">"I paint with pixels, perform with punchlines, and program with passion. In my world, every bug is a brushstroke, every algorithm an art form."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2 class="section-title mb-4">An Artist Disguised as a Software Engineer</h2>
+                    <p class="lead mb-4">
+                        Software Engineer at Arcesium by day, painter and stand-up comedian by night. My canvas extends from code editors to actual canvases, from debugging sessions to comedy stages.
+                    </p>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <i class="fas fa-code"></i>
+                            <h5>Code Craftsman</h5>
+                            <p>Python, C++, AWS, ML</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-palette"></i>
+                            <h5>Visual Artist</h5>
+                            <p>Painting & Creative Design</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-microphone"></i>
+                            <h5>Stand-up Comic</h5>
+                            <p>Making bugs funny since 2020</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-book-open"></i>
+                            <h5>Literature Enthusiast</h5>
+                            <p>From Premchand to Austen</p>
+                        </div>
+                    </div>
+                    <div class="education-info mt-4">
+                        <h5><i class="fas fa-graduation-cap"></i> Education</h5>
+                        <p><strong>B.Tech in Computer Science & Engineering</strong><br>
+                        Institute of Engineering & Technology, Lucknow (2016-2020)<br>
+                        <span class="badge bg-success">GPA: 8.34/10</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section - Modern and Professional -->
+    <section id="achievements" class="achievements-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-3" data-aos="fade-up">
+                <span class="achievement-main-title">Achievements</span>
+            </h2>
+            <p class="section-subtitle text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+                Recognition and milestones that define my journey
+            </p>
+
+            <!-- Main Achievements Grid -->
+            <div class="achievements-grid">
+                <!-- Smart India Hackathon Achievement -->
+                <div class="achievement-card main-achievement" data-aos="fade-up" data-aos-delay="200">
+                    <div class="achievement-header">
+                        <div class="achievement-icon-wrapper gold">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <span class="achievement-year">2020</span>
+                    </div>
+                    <div class="achievement-body">
+                        <h3 class="achievement-title">Smart India Hackathon</h3>
+                        <p class="achievement-subtitle">Grand Finale Champion</p>
+                        <p class="achievement-description">
+                            National winner in Bureau of Police Research & Development Category
+                        </p>
+                        <div class="achievement-tags">
+                            <span class="achievement-tag primary">1st Position</span>
+                            <span class="achievement-tag gold">National Level</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barclays Hackathon Achievement -->
+                <div class="achievement-card main-achievement" data-aos="fade-up" data-aos-delay="300">
+                    <div class="achievement-header">
+                        <div class="achievement-icon-wrapper silver">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <span class="achievement-year">2019</span>
+                    </div>
+                    <div class="achievement-body">
+                        <h3 class="achievement-title">Barclays India Hackathon</h3>
+                        <p class="achievement-subtitle">Grand Finale Qualifier</p>
+                        <p class="achievement-description">
+                            Ranked 9th out of 1500+ teams nationwide, received Pre-Placement Offer
+                        </p>
+                        <div class="achievement-tags">
+                            <span class="achievement-tag primary">Top 10</span>
+                            <span class="achievement-tag success">PPO Received</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACM ICPC 2019-20 -->
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="achievement-header">
+                        <div class="achievement-icon-wrapper bronze">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <span class="achievement-year">2019-20</span>
+                    </div>
+                    <div class="achievement-body">
+                        <h3 class="achievement-title">ACM-ICPC Regionals</h3>
+                        <p class="achievement-subtitle">Asia Kharagpur</p>
+                        <p class="achievement-description">
+                            Rank 190 Nationwide, Onsite Round Selected
+                        </p>
+                        <div class="achievement-tags">
+                            <span class="achievement-tag">Competitive Programming</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACM ICPC 2018-19 -->
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="achievement-header">
+                        <div class="achievement-icon-wrapper bronze">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <span class="achievement-year">2018-19</span>
+                    </div>
+                    <div class="achievement-body">
+                        <h3 class="achievement-title">ACM-ICPC Regionals</h3>
+                        <p class="achievement-subtitle">IIT Kharagpur</p>
+                        <p class="achievement-description">
+                            Rank 120 Nationwide, Onsite Round Selected
+                        </p>
+                        <div class="achievement-tags">
+                            <span class="achievement-tag">Competitive Programming</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WiT Member Achievement -->
+                <div class="achievement-card special-achievement" data-aos="fade-up" data-aos-delay="600">
+                    <div class="achievement-header">
+                        <div class="achievement-icon-wrapper special">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <span class="achievement-year">2020</span>
+                    </div>
+                    <div class="achievement-body">
+                        <h3 class="achievement-title">Women in Technology</h3>
+                        <p class="achievement-subtitle">Barclays WiT Group</p>
+                        <p class="achievement-description">
+                            Selected member of exclusive 60-person team exploring ML practices
+                        </p>
+                        <div class="achievement-tags">
+                            <span class="achievement-tag primary">Leadership</span>
+                            <span class="achievement-tag">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievement Stats -->
+            <div class="achievement-stats" data-aos="fade-up" data-aos-delay="700">
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">National Wins</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Hackathons</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1500+</div>
+                    <div class="stat-label">Teams Competed Against</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">PPO Received</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Professional Journey</h2>
+
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Member Technical Staff (SDE-2)</h3>
+                        <h4 class="company">Salesforce</h4>
+                        <span class="period">Sep 2024 - Present</span>
+                        <p>Building next-generation cloud solutions and enterprise software at scale, contributing to Salesforce's industry-leading CRM platform.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Cloud Computing</span>
+                            <span class="tech-badge">Enterprise Software</span>
+                            <span class="tech-badge">Distributed Systems</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Software Engineer</h3>
+                        <h4 class="company">Arcesium</h4>
+                        <span class="period">Nov 2021 - Sep 2024</span>
+                        <p>Working with Trade Reference Data team, managing transaction flows, customer data storage, receivables reconciliation, and standardized reporting systems.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Software Engineer</h3>
+                        <h4 class="company">Barclays</h4>
+                        <span class="period">Aug 2020 - Aug 2021</span>
+                        <p>Cloud & DevOps team member, architecting AWS infrastructure. Created Lambda functions for resource automation, saving costs and complexity through automated database deployments.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">AWS</span>
+                            <span class="tech-badge">Lambda</span>
+                            <span class="tech-badge">S3</span>
+                            <span class="tech-badge">RDS</span>
+                            <span class="tech-badge">EC2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Python Developer Intern</h3>
+                        <h4 class="company">Vaultedge Software</h4>
+                        <span class="period">June - Aug 2019</span>
+                        <p>Automated mortgage document data extraction using OCR and ML, achieving 12% profit increase through efficient processing.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">OpenCV</span>
+                            <span class="tech-badge">Machine Learning</span>
+                            <span class="tech-badge">Regex</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Reads Section -->
+    <section id="my-reads" class="reads-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">
+                <span class="reads-title">Soulful Sojourns</span>
+                <small class="d-block mt-2">My Literary Universe</small>
+            </h2>
+
+            <div class="quote-banner" data-aos="zoom-in">
+                <blockquote class="literary-quote">
+                    "A reader lives a thousand lives before he dies. The man who never reads lives only one."
+                    <cite>- George R.R. Martin</cite>
+                </blockquote>
+            </div>
+
+            <div class="books-showcase">
+                <div class="row">
+                    <!-- Hindi Literature -->
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h3 class="literature-category">Hindi Literature Treasures</h3>
+                        <div class="book-grid">
+                            <div class="book-card">
+                                <div class="book-spine"></div>
+                                <div class="book-content">
+                                    <h4>Munshi Premchand</h4>
+                                    <p class="book-works">Godan, Nirmala, Gaban</p>
+                                    <p class="book-quote">"The master of social realism"</p>
+                                </div>
+                            </div>
+                            <div class="book-card">
+                                <div class="book-spine"></div>
+                                <div class="book-content">
+                                    <h4>Rabindranath Tagore</h4>
+                                    <p class="book-works">Bahurani, Gitanjali</p>
+                                    <p class="book-quote">"Where the mind is without fear..."</p>
+                                </div>
+                            </div>
+                            <div class="book-card">
+                                <div class="book-spine"></div>
+                                <div class="book-content">
+                                    <h4>Mahadevi Verma</h4>
+                                    <p class="book-works">Yama, Neelambara</p>
+                                    <p class="book-quote">"The modern Meera"</p>
+                                </div>
+                            </div>
+                            <div class="book-card">
+                                <div class="book-spine"></div>
+                                <div class="book-content">
+                                    <h4>Amrita Pritam</h4>
+                                    <p class="book-works">Pinjar, Rasidi Ticket</p>
+                                    <p class="book-quote">"The voice of partition"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- English Literature -->
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h3 class="literature-category">English Classics & Contemporary</h3>
+                        <div class="book-grid">
+                            <div class="book-card">
+                                <div class="book-spine english"></div>
+                                <div class="book-content">
+                                    <h4>Jane Austen</h4>
+                                    <p class="book-works">Pride and Prejudice, Emma</p>
+                                    <p class="book-quote">"It is a truth universally acknowledged..."</p>
+                                </div>
+                            </div>
+                            <div class="book-card">
+                                <div class="book-spine english"></div>
+                                <div class="book-content">
+                                    <h4>Virginia Woolf</h4>
+                                    <p class="book-works">Mrs Dalloway, To the Lighthouse</p>
+                                    <p class="book-quote">"A woman must have money and a room of her own"</p>
+                                </div>
+                            </div>
+                            <div class="book-card">
+                                <div class="book-spine english"></div>
+                                <div class="book-content">
+                                    <h4>Charlotte Brontë</h4>
+                                    <p class="book-works">Jane Eyre</p>
+                                    <p class="book-quote">"I am no bird; and no net ensnares me"</p>
+                                </div>
+                            </div>
+                            <div class="book-card">
+                                <div class="book-spine english"></div>
+                                <div class="book-content">
+                                    <h4>Maya Angelou</h4>
+                                    <p class="book-works">I Know Why the Caged Bird Sings</p>
+                                    <p class="book-quote">"Still I rise"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Favorites -->
+                <div class="favorite-authors" data-aos="fade-up">
+                    <h4 class="text-center mb-4">Also cherishing works by</h4>
+                    <div class="author-pills">
+                        <span class="author-pill">Ismat Chughtai</span>
+                        <span class="author-pill">Sylvia Plath</span>
+                        <span class="author-pill">Margaret Atwood</span>
+                        <span class="author-pill">Kamala Das</span>
+                        <span class="author-pill">Arundhati Roy</span>
+                        <span class="author-pill">Jhumpa Lahiri</span>
+                        <span class="author-pill">Simone de Beauvoir</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art & Comedy Section -->
+    <section id="art" class="art-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">The Creative Canvas</h2>
+
+            <div class="row">
+                <!-- Painting Section -->
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="art-card painting-card">
+                        <div class="card-header">
+                            <i class="fas fa-palette fa-2x"></i>
+                            <h3>Painting</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Where colors speak louder than code</p>
+                            <div class="art-gallery">
+                                <div class="gallery-item"></div>
+                                <div class="gallery-item"></div>
+                                <div class="gallery-item"></div>
+                                <div class="gallery-item"></div>
+                            </div>
+                            <p class="mt-3">From abstract expressions to realistic portraits, my canvas captures emotions that algorithms cannot compute.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stand-up Comedy Section -->
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="art-card comedy-card">
+                        <div class="card-header">
+                            <i class="fas fa-microphone-alt fa-2x"></i>
+                            <h3>Stand-up Comedy</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead">Debugging life, one punchline at a time</p>
+                            <div class="comedy-quotes">
+                                <div class="quote-bubble">
+                                    "They say AI will replace us. I say, let it try to explain a null pointer exception to management!"
+                                </div>
+                                <div class="quote-bubble">
+                                    "Dating a programmer is easy. We're already committed... to Git."
+                                </div>
+                            </div>
+                            <p class="mt-3">Turning tech troubles into comedy gold. Because if we don't laugh at our bugs, we'll cry at our logs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Technical Craftsmanship</h2>
+
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="flip-left">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Trend Analysis & Sales Forecasting</h4>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <p>Implemented ARIMA model for pattern recognition and sales prediction using historical data.</p>
+                        <div class="project-tech">
+                            <span class="badge bg-primary">Python 3</span>
+                            <span class="badge bg-primary">Machine Learning</span>
+                            <span class="badge bg-primary">Jupyter Notebook</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4" data-aos="flip-right">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Essange Bakery Chatbot</h4>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <p>FB Messenger chatbot for automated customer interaction, orders, and reservations.</p>
+                        <div class="project-tech">
+                            <span class="badge bg-primary">Chatfuel</span>
+                            <span class="badge bg-primary">AI</span>
+                            <span class="badge bg-primary">NLP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Let's Create Something Beautiful Together</h2>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="lead mb-4" data-aos="fade-up">Whether it's code, canvas, or comedy - I'm always excited to connect with kindred spirits!</p>
+
+                    <div class="contact-info" data-aos="zoom-in">
+                        <a href="mailto:nehamishra.iet@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>nehamishra.iet@gmail.com</span>
+                        </a>
+                    </div>
+
+                    <div class="social-links mt-4" data-aos="fade-up">
+                        <a href="https://www.linkedin.com/in/neha-mishra/" target="_blank" class="social-link linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/neha-mishra" target="_blank" class="social-link github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.interviewbit.com/profile/neha-mishra" target="_blank" class="social-link">
+                            <i class="fas fa-code"></i>
+                        </a>
+                        <a href="https://www.codechef.com/users/neha_mishra" target="_blank" class="social-link">
+                            <i class="fas fa-terminal"></i>
+                        </a>
+                        <a href="https://leetcode.com/neha-mishra/" target="_blank" class="social-link">
+                            <i class="fas fa-laptop-code"></i>
+                        </a>
+                        <a href="https://www.hackerrank.com/neha_mishra" target="_blank" class="social-link">
+                            <i class="fab fa-hackerrank"></i>
+                        </a>
+                    </div>
+
+                    <div class="programming-handles mt-4" data-aos="fade-up">
+                        <h5 class="mb-3">Find me coding at</h5>
+                        <div class="handle-badges">
+                            <span class="handle-badge">Interview Bit</span>
+                            <span class="handle-badge">GeeksforGeeks</span>
+                            <span class="handle-badge">CodeChef</span>
+                            <span class="handle-badge">HackerRank</span>
+                            <span class="handle-badge">LeetCode</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p class="mb-0">Crafted with <i class="fas fa-heart text-danger"></i> and <i class="fas fa-coffee"></i> by Neha Mishra</p>
+            <p class="small mt-2">Where every line of code tells a story</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Typed.js for Typewriter Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
