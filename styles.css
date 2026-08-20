@@ -634,8 +634,11 @@ p { text-wrap: pretty; }
 
 /* Portrait */
 .hero__portrait {
+  /* Space reserved around the photo so the wave ring has somewhere to live */
+  --ring: clamp(52px, 12vw, 86px);
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  padding-inline: calc(var(--ring) + 8px);
 }
 
 /* The source file is 144x160. It is shown whole, at its native size, so
@@ -649,10 +652,10 @@ p { text-wrap: pretty; }
    which is taller because it also holds the caption. */
 .portrait__glow {
   position: absolute;
-  top: -28px;
-  left: -24px;
-  right: -24px;
-  height: 216px;
+  top: calc(var(--ring) * -0.55);
+  left: calc(var(--ring) * -0.5);
+  width: calc(144px + var(--ring));
+  height: calc(160px + var(--ring) * 1.1);
   z-index: 0;
   border-radius: var(--r-lg);
   background: radial-gradient(circle at 50% 34%, var(--accent) 0%, transparent 70%);
@@ -668,41 +671,58 @@ p { text-wrap: pretty; }
   50%      { opacity: 0.28; transform: scale(1.04); }
 }
 
-/* Drifting contour lines. Each path repeats every 100 user units, so a
-   -100 translate loops seamlessly. Colour comes from the accent token,
-   so the field re-tints itself with the theme. */
+/* Concentric wavy rings orbiting the photo, tied together by radial
+   connectors. Colour comes from the accent token, so the field re-tints
+   itself with the theme. */
 .portrait__waves {
   position: absolute;
-  top: -26px;
-  left: -28px;
-  right: -28px;
-  height: 212px;
+  top: calc(var(--ring) * -1);
+  left: calc(var(--ring) * -1 - 8px);
+  width: calc(160px + var(--ring) * 2);
+  height: calc(160px + var(--ring) * 2);
   z-index: 0;
   pointer-events: none;
-  overflow: hidden;
-  -webkit-mask-image: radial-gradient(closest-side, #000 42%, rgba(0, 0, 0, 0.35) 72%, transparent 100%);
-  mask-image: radial-gradient(closest-side, #000 42%, rgba(0, 0, 0, 0.35) 72%, transparent 100%);
+  /* Square box centred on the photo, so the rings stay true circles.
+     Opaque across the band, dissolving only at the outer rim. */
+  -webkit-mask-image: radial-gradient(closest-side, #000 0%, #000 88%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 0%, #000 88%, transparent 100%);
 }
 .portrait__waves svg {
   width: 100%;
   height: 100%;
-  overflow: visible;
 }
-.wave {
+.ring {
   fill: none;
   stroke: var(--accent);
-  stroke-linecap: round;
+  transform-box: view-box;
+  transform-origin: 50% 50%;
   will-change: transform;
 }
-.wave--1 { stroke-width: 1;    opacity: calc(0.30 * var(--wave-boost)); animation: drift 23s linear infinite; }
-.wave--2 { stroke-width: 1.25; opacity: calc(0.22 * var(--wave-boost)); animation: drift 31s linear infinite reverse; }
-.wave--3 { stroke-width: 1;    opacity: calc(0.16 * var(--wave-boost)); animation: drift 27s linear infinite; }
-.wave--4 { stroke-width: 0.9;  opacity: calc(0.11 * var(--wave-boost)); animation: drift 37s linear infinite reverse; }
-
-@keyframes drift {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-100px); }
+.ring path { fill: none; stroke: inherit; }
+.ring__node {
+  fill: var(--accent);
+  stroke: none;
 }
+.ring-web {
+  stroke: var(--accent);
+  stroke-width: 0.6;
+  fill: none;
+  opacity: calc(0.16 * var(--wave-boost));
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: orbit 150s linear infinite reverse;
+}
+
+.ring--1 { stroke-width: 1;    opacity: calc(0.34 * var(--wave-boost)); animation: orbit  64s linear infinite; }
+.ring--2 { stroke-width: 1.2;  opacity: calc(0.58 * var(--wave-boost)); animation: orbit  86s linear infinite reverse; }
+.ring--3 { stroke-width: 1.2;  opacity: calc(0.46 * var(--wave-boost)); animation: orbit 104s linear infinite; }
+.ring--4 { stroke-width: 0.9;  opacity: calc(0.36 * var(--wave-boost)); animation: orbit 128s linear infinite reverse; }
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 
 .portrait__img {
   position: relative;
@@ -728,6 +748,8 @@ p { text-wrap: pretty; }
 }
 
 .portrait__cap {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
