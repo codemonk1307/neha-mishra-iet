@@ -633,38 +633,41 @@ p { text-wrap: pretty; }
   justify-content: flex-start;
 }
 
+/* The source file is 144x160. It is shown whole, at its native size, so
+   nothing is cropped and nothing is upscaled into a blur. */
 .portrait {
   position: relative;
-  width: clamp(150px, 44vw, 210px);
+  width: 144px;
+  max-width: 100%;
 }
 .portrait__glow {
   position: absolute;
-  inset: -14%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 30%, var(--accent) 0%, transparent 68%);
+  inset: -18% -16%;
+  border-radius: var(--r-lg);
+  background: radial-gradient(circle at 50% 34%, var(--accent) 0%, transparent 70%);
   opacity: 0.22;
-  filter: blur(22px);
+  filter: blur(24px);
   pointer-events: none;
 }
 .portrait__img {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  object-position: 50% 22%;
-  border-radius: 50%;
+  height: auto;
+  aspect-ratio: 144 / 160;
+  object-fit: contain;
+  border-radius: var(--r-md);
   border: 1px solid var(--line-strong);
   outline: 1px solid var(--accent-line);
-  outline-offset: 8px;
+  outline-offset: 6px;
   background: var(--bg-soft);
-  filter: grayscale(0.16) contrast(1.06) saturate(1.04);
+  filter: contrast(1.04) saturate(1.03);
   transition: filter 400ms var(--ease), transform 400ms var(--ease);
 }
 
 @media (hover: hover) {
   .portrait:hover .portrait__img {
-    filter: grayscale(0) contrast(1.02) saturate(1.08);
-    transform: scale(1.02);
+    filter: contrast(1.02) saturate(1.08);
+    transform: translateY(-2px);
   }
 }
 
@@ -1514,7 +1517,7 @@ p { text-wrap: pretty; }
 }
 
 @media (min-width: 860px) {
-  .hero__inner { grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr); }
+  .hero__inner { grid-template-columns: minmax(0, 1fr) auto; }
   .hero__portrait { justify-content: center; }
   .about { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); align-items: start; }
 }
