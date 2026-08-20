@@ -47,6 +47,9 @@
   /* Motion */
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 
+  /* Portrait wave field: the bright dark-mode accent needs less of it */
+  --wave-boost: 1;
+
   /* Header glass */
   --header-bg:        rgba(250, 246, 240, 0.72);
   --header-bg-scroll: rgba(250, 246, 240, 0.9);
@@ -71,6 +74,8 @@
   --accent:        #E4713F;
   --accent-soft:   rgba(228, 113, 63, 0.12);
   --accent-line:   rgba(228, 113, 63, 0.32);
+
+  --wave-boost: 0.82;
 
   --header-bg:        rgba(8, 9, 10, 0.66);
   --header-bg-scroll: rgba(8, 9, 10, 0.88);
@@ -640,17 +645,68 @@ p { text-wrap: pretty; }
   width: 144px;
   max-width: 100%;
 }
+/* Both decorations are pinned to the photo box (144x160), not to .portrait,
+   which is taller because it also holds the caption. */
 .portrait__glow {
   position: absolute;
-  inset: -18% -16%;
+  top: -28px;
+  left: -24px;
+  right: -24px;
+  height: 216px;
+  z-index: 0;
   border-radius: var(--r-lg);
   background: radial-gradient(circle at 50% 34%, var(--accent) 0%, transparent 70%);
   opacity: 0.22;
   filter: blur(24px);
   pointer-events: none;
+  animation: aura 11s var(--ease) infinite;
 }
+
+/* Slow breathing aura behind the photo */
+@keyframes aura {
+  0%, 100% { opacity: 0.18; transform: scale(0.97); }
+  50%      { opacity: 0.28; transform: scale(1.04); }
+}
+
+/* Drifting contour lines. Each path repeats every 100 user units, so a
+   -100 translate loops seamlessly. Colour comes from the accent token,
+   so the field re-tints itself with the theme. */
+.portrait__waves {
+  position: absolute;
+  top: -26px;
+  left: -28px;
+  right: -28px;
+  height: 212px;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(closest-side, #000 42%, rgba(0, 0, 0, 0.35) 72%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 42%, rgba(0, 0, 0, 0.35) 72%, transparent 100%);
+}
+.portrait__waves svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.wave {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  will-change: transform;
+}
+.wave--1 { stroke-width: 1;    opacity: calc(0.30 * var(--wave-boost)); animation: drift 23s linear infinite; }
+.wave--2 { stroke-width: 1.25; opacity: calc(0.22 * var(--wave-boost)); animation: drift 31s linear infinite reverse; }
+.wave--3 { stroke-width: 1;    opacity: calc(0.16 * var(--wave-boost)); animation: drift 27s linear infinite; }
+.wave--4 { stroke-width: 0.9;  opacity: calc(0.11 * var(--wave-boost)); animation: drift 37s linear infinite reverse; }
+
+@keyframes drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100px); }
+}
+
 .portrait__img {
   position: relative;
+  z-index: 1;
   width: 100%;
   height: auto;
   aspect-ratio: 144 / 160;
@@ -677,7 +733,7 @@ p { text-wrap: pretty; }
   justify-content: center;
   align-items: center;
   gap: 7px;
-  margin-top: 22px;
+  margin-top: 32px;
   font-family: var(--font-mono);
   font-size: 10.5px;
   text-transform: uppercase;
