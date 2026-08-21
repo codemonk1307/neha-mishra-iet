@@ -305,6 +305,8 @@ p { text-wrap: pretty; }
   font-weight: 600;
   letter-spacing: -0.02em;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .nav { display: none; }
@@ -349,7 +351,9 @@ p { text-wrap: pretty; }
   gap: 8px;
   flex: none;
 }
-.header__cta { display: none; }
+/* .btn sets display later in the file, so both of these need the extra
+   class to win on specificity rather than source order. */
+.btn.header__cta { display: none; }
 
 .icon-btn {
   display: grid;
@@ -1619,13 +1623,12 @@ p { text-wrap: pretty; }
 }
 
 @media (min-width: 1080px) {
-  .header__cta { display: inline-flex; }
+  .btn.header__cta { display: inline-flex; }
   .linkgroups { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 /* Very small phones */
 @media (max-width: 359px) {
-  .brand__text { display: none; }
   .social__link { width: 40px; height: 40px; }
 }
 
